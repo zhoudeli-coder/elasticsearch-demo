@@ -2,18 +2,8 @@ spring:
   main:
     allow-bean-definition-overriding: true
   data:
-    mongodb:
-      authentication-database: false
-      uri: mongodb://127.0.0.1:27017/test
-
-logging:
-  level:
-    org:
-      springframework:
-        data:
-          mongodb:
-            core: debug
-      mongodb:
-        driver:
-          protocol:
-            command: debug
+    elasticsearch:
+      cluster-name: elasticsearch  # elasticsearch集群名称，默认的是elasticsearch
+      cluster-nodes: 192.168.11.24:9300  #节点的地址 注意api模式下端口号是9300，千万不要写成9200
+      repositories:
+        enable: true  #是否开启本地存储
