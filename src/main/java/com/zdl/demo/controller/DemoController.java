@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -33,5 +34,10 @@ public class DemoController {
     public Employee get() {
         Optional<Employee> byId = employeeDao.findById("1");
         return byId.get();
+    }
+
+    @GetMapping("/list")
+    public List<Employee> list() {
+        return employeeDao.search();
     }
 }
